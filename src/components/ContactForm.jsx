@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import emailjs from "emailjs-com";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -9,6 +10,10 @@ const ContactForm = () => {
     preferredContact: "",
     message: "",
   });
+
+  const SERVICE_ID = "service_t8tr6q7";
+  const TEMPLATE_ID = "template_jkn0qid";
+  const PUBLIC_KEY = "tiafEIHi0ikrfYrPc";
 
   const handleChange = (e) => {
     const { name, value, type } = e.target;
@@ -20,7 +25,32 @@ const ContactForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+
+    const templateParams = {
+      from_name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      sport: formData.preferredContact,
+      message: formData.message,
+    };
+
+    emailjs
+      .send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
+      .then((response) => {
+        console.log("SUCCESS!", response.status, response.text);
+        alert("Your message has been sent!");
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          preferredContact: "",
+          message: "",
+        });
+      })
+      .catch((error) => {
+        console.error("FAILED...", error);
+        alert("Oops! Something went wrong. Please try again later.");
+      });
   };
 
   return (
@@ -40,12 +70,9 @@ const ContactForm = () => {
               </h1>
               <div className="absolute bottom-0 w-full lg:p-11 p-5 z-10">
                 <div className="bg-white rounded-lg p-6 space-y-6">
-                  <ContactInfo icon="📞" label="470-601-1911" />
-                  <ContactInfo icon="📧" label="academy@sportsconnect.com" />
-                  <ContactInfo
-                    icon="📍"
-                    label="654 Sycamore Ave, Meadowville, WA 76543"
-                  />
+                  <ContactInfo icon="📞" label="+254 743 130 391" />
+                  <ContactInfo icon="📧" label="shirsportsacademy@gmail.com" />
+                  <ContactInfo icon="📍" label="Terrian Park, Kitengela" />
                 </div>
               </div>
               <div className="absolute inset-0 bg-[#59098c] bg-opacity-50 z-0"></div>
