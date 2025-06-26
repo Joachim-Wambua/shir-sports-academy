@@ -1,12 +1,10 @@
-// components/AboutUsHeroSection.tsx
-
 import Link from "next/link";
 
-export default function AboutUsHeroSection() {
+export default function About() {
   return (
     <section className="w-full bg-white py-12">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-8 px-6">
-        {/* Left: Image or Video */}
+        {/* Left: Video */}
         <div className="w-full lg:w-1/2">
           <div className="aspect-video rounded-2xl overflow-hidden shadow-lg">
             <video
@@ -14,8 +12,9 @@ export default function AboutUsHeroSection() {
               loop
               muted
               playsInline
+              preload="metadata"
+              poster="/football-thumb.jpg" // Add a preview image for faster first paint
               className="w-full h-full object-cover"
-              //   poster="/images/about-thumbnail.jpg"
             >
               <source src="/football-promo.mp4" type="video/mp4" />
               Your browser does not support the video tag.
@@ -23,7 +22,7 @@ export default function AboutUsHeroSection() {
           </div>
         </div>
 
-        {/* Right: Text Content */}
+        {/* Right: Text */}
         <div className="w-full lg:w-1/2 space-y-6">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
             More Than a Game — We Train Minds and Feet

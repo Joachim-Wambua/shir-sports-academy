@@ -31,7 +31,7 @@ const PricingBox = ({ product }) => {
 
   return (
     <>
-      <div className="w-full px-4 md:w-1/2 lg:w-1/3">
+      <div className="flex justify-center w-full px-4">
         <div className="relative z-10 mb-10 overflow-hidden rounded-xl bg-[#59098c] px-8 py-10 shadow-[0px_0px_40px_0px_rgba(0,0,0,0.08)] dark:bg-dark-2 sm:p-12 lg:px-6 lg:py-10 xl:p-14">
           <span className="mb-5 block text-xl font-medium text-dark dark:text-white">
             {product.nickname}
@@ -146,7 +146,7 @@ const Pricing = () => {
       id="pricing"
       className="relative z-20 overflow-hidden bg-white pb-12 pt-20 dark:bg-dark lg:pb-[90px] lg:pt-[120px]"
     >
-      <div className="container">
+      <div className=" w-fullcontainer">
         <div className="mb-[60px]">
           <SectionTitle
             // subtitle="Pricing"

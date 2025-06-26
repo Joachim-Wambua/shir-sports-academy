@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 const slides = [
   {
@@ -45,10 +46,13 @@ const Hero = () => {
           transition={{ duration: 1.2, ease: "easeInOut" }}
           className="absolute inset-0"
         >
-          <img
+          <Image
             src={slides[index].image}
             alt={slides[index].title}
-            className="h-full w-full object-cover"
+            fill
+            priority={index === 0}
+            className="object-cover"
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-black/80" />
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4">

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 
 const managementTeam = [
   {
@@ -80,8 +81,8 @@ const Team = () => {
     ];
 
     return (
-      <div className="flex items-center justify-center mt-6 ">
-        <div className="flex items-center p-1 border border-[#8536b6] dark:border-[#8536b6] rounded-xl">
+      <div className="flex items-center justify-center mt-6">
+        <div className="flex items-center p-1 border border-[#8536b6] rounded-xl">
           {categories.map(({ label, value }) => (
             <button
               key={value}
@@ -117,15 +118,20 @@ const Team = () => {
         <div className="grid grid-cols-1 gap-8 mt-10 xl:mt-16 md:grid-cols-2 xl:grid-cols-3">
           {getTeam().map((member, index) => (
             <div key={index} className="flex flex-col items-center">
-              <img
-                className="object-cover w-full rounded-xl aspect-square"
-                src={member.image}
-                alt={member.name}
-              />
-              <h2 className="mt-4 text-2xl font-semibold text-gray-700 capitalize ">
+              <div className="relative w-full aspect-square rounded-xl overflow-hidden">
+                <Image
+                  src={member.image}
+                  alt={member.name}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  priority={index === 0} // only prioritize first image
+                />
+              </div>
+              <h2 className="mt-4 text-2xl font-semibold text-gray-700 capitalize">
                 {member.name}
               </h2>
-              <p className="mt-2 text-gray-500 capitalize ">{member.role}</p>
+              <p className="mt-2 text-gray-500 capitalize">{member.role}</p>
             </div>
           ))}
         </div>
