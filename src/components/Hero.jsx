@@ -9,19 +9,19 @@ const slides = [
     id: 1,
     title: "Unlock Your Child's Athletic Potential",
     text: "Our structured football and basketball programs build discipline, confidence, and teamwork.",
-    image: "/hero1.jpg",
+    image: "/greg.jpg",
   },
   {
     id: 2,
     title: "Elite Coaching for All Skill Levels",
     text: "Certified coaches create a safe and growth-oriented environment for young athletes.",
-    image: "/hero2.jpg",
+    image: "/academy/team.jpg",
   },
   {
     id: 3,
     title: "More Than Sports - We Build Leaders",
     text: "Character, commitment, and community are at the heart of every training session.",
-    image: "/hero3.jpg",
+    image: "/academy/nathan.jpg",
   },
 ];
 
@@ -36,7 +36,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="relative h-[80vh] w-full overflow-hidden shadow-xl pt-20">
+    <div className="relative h-[90vh] w-full overflow-hidden shadow-xl pt-20">
       <AnimatePresence mode="wait">
         <motion.div
           key={slides[index].id}

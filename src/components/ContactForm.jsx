@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
+import Modal from "./Modal";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +11,9 @@ const ContactForm = () => {
     preferredContact: "",
     message: "",
   });
+  const [showModal, setShowModal] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
+  const [modalType, setModalType] = useState("success");
 
   const SERVICE_ID = "service_t8tr6q7";
   const TEMPLATE_ID = "template_jkn0qid";
@@ -38,7 +42,9 @@ const ContactForm = () => {
       .send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
       .then((response) => {
         console.log("SUCCESS!", response.status, response.text);
-        alert("Your message has been sent!");
+        setModalMessage("Your Message has been sent!");
+        setModalType("success");
+        setShowModal(true);
         setFormData({
           name: "",
           email: "",
@@ -49,7 +55,9 @@ const ContactForm = () => {
       })
       .catch((error) => {
         console.error("FAILED...", error);
-        alert("Oops! Something went wrong. Please try again later.");
+        setModalMessage("Oops! Something went wrong. Please try again later.");
+        setModalType("error");
+        setShowModal(true);
       });
   };
 
@@ -112,7 +120,7 @@ const ContactForm = () => {
                 />
 
                 {/* Preferred Sport */}
-                <div className="mb-10">
+                {/* <div className="mb-10">
                   <h4 className="text-gray-500 text-lg font-normal leading-7 mb-4">
                     Preferred Sport
                   </h4>
@@ -135,7 +143,7 @@ const ContactForm = () => {
                       </label>
                     ))}
                   </div>
-                </div>
+                </div> */}
 
                 <input
                   type="text"
@@ -156,6 +164,13 @@ const ContactForm = () => {
           </div>
         </div>
       </div>
+
+      <Modal
+        show={showModal}
+        onClose={() => setShowModal(false)}
+        type={modalType}
+        message={modalMessage}
+      />
     </section>
   );
 };

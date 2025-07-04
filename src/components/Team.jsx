@@ -5,36 +5,36 @@ import Image from "next/image";
 
 const managementTeam = [
   {
-    name: "Joachim Wambua",
+    name: "Stacey Isiaho",
     role: "Academy Director",
     image: "/coach.jpg",
   },
   {
-    name: "Alice Niyonsenga",
+    name: "Shishi Wanjiru",
     role: "Operations Manager",
     image: "/coach.jpg",
   },
   {
-    name: "Michael Gatera",
-    role: "Assistant Basketball Coach",
+    name: "Joachim Mwengi",
+    role: "Technical Director",
     image: "/coach.jpg",
   },
 ];
 
 const footballCoaches = [
   {
-    name: "Jean Bosco",
-    role: "Head Football Coach",
+    name: "Coach Paul",
+    role: "Head Coach",
     image: "/coach.jpg",
   },
   {
-    name: "Eric Mutabazi",
-    role: "Goalkeeping Coach",
+    name: "Coach Kim",
+    role: "Under 9 Coach",
     image: "/coach.jpg",
   },
   {
-    name: "Michael Gatera",
-    role: "Assistant Basketball Coach",
+    name: "Coach T",
+    role: "Under 13 Coach",
     image: "/coach.jpg",
   },
 ];
@@ -42,12 +42,20 @@ const footballCoaches = [
 const basketballCoaches = [
   {
     name: "Keza Diane",
-    role: "Head Basketball Coach",
+    role: "Basketball Coach",
     image: "/coach.jpg",
   },
   {
     name: "Michael Gatera",
     role: "Assistant Basketball Coach",
+    image: "/coach.jpg",
+  },
+];
+
+const tennisCoaches = [
+  {
+    name: "Keza Diane",
+    role: "Basketball Coach",
     image: "/coach.jpg",
   },
   {
@@ -68,6 +76,8 @@ const Team = () => {
         return footballCoaches;
       case "basketball":
         return basketballCoaches;
+      case "tennis":
+        return tennisCoaches;
       default:
         return [];
     }
@@ -76,8 +86,9 @@ const Team = () => {
   const renderButtons = () => {
     const categories = [
       { label: "Management", value: "management" },
-      { label: "Football Coaches", value: "football" },
-      { label: "Basketball Coaches", value: "basketball" },
+      { label: "Football", value: "football" },
+      { label: "Basketball", value: "basketball" },
+      { label: "Tennis", value: "tennis" },
     ];
 
     return (
@@ -115,9 +126,20 @@ const Team = () => {
 
         {renderButtons()}
 
-        <div className="grid grid-cols-1 gap-8 mt-10 xl:mt-16 md:grid-cols-2 xl:grid-cols-3">
+        <div
+          className={`mt-10 xl:mt-16 grid gap-8 ${
+            getTeam().length === 1
+              ? "grid-cols-1 justify-items-center"
+              : getTeam().length === 2
+              ? "grid-cols-1 sm:grid-cols-2 justify-items-center"
+              : "grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 justify-items-center"
+          }`}
+        >
           {getTeam().map((member, index) => (
-            <div key={index} className="flex flex-col items-center">
+            <div
+              key={index}
+              className="flex flex-col items-center max-w-sm w-full"
+            >
               <div className="relative w-full aspect-square rounded-xl overflow-hidden">
                 <Image
                   src={member.image}
@@ -125,7 +147,7 @@ const Team = () => {
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 33vw"
-                  priority={index === 0} // only prioritize first image
+                  priority={index === 0}
                 />
               </div>
               <h2 className="mt-4 text-2xl font-semibold text-gray-700 capitalize">
