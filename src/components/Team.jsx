@@ -3,70 +3,75 @@
 import React, { useState } from "react";
 import Image from "next/image";
 
-const managementTeam = [
-  {
-    name: "Stacey Isiaho",
-    role: "Academy Director",
-    image: "/coach.jpg",
-  },
-  {
-    name: "Shishi Wanjiru",
-    role: "Operations Manager",
-    image: "/coach.jpg",
-  },
-  {
-    name: "Joachim Mwengi",
-    role: "Technical Director",
-    image: "/coach.jpg",
-  },
-];
+// const managementTeam = [
+//   {
+//     name: "Stacey Isiaho",
+//     role: "Academy Director",
+//     image: "/coach.jpg",
+//   },
+//   {
+//     name: "Shishi Wanjiru",
+//     role: "Operations Manager",
+//     image: "/coach.jpg",
+//   },
+//   {
+//     name: "Joachim Mwengi",
+//     role: "Technical Director",
+//     image: "/coach.jpg",
+//   },
+// ];
 
 const footballCoaches = [
   {
+    name: "Coach Victor",
+    role: "Under 13 Coach",
+    image: "/victor.jpg",
+  },
+  {
+    name: "Coach Steve",
+    role: "Under 13 Coach",
+    image: "/bango.jpg",
+  },
+  {
     name: "Coach Paul",
-    role: "Head Coach",
-    image: "/coach.jpg",
+    role: "Under 9 Coach",
+    image: "/paul.jpg",
   },
   {
     name: "Coach Kim",
     role: "Under 9 Coach",
-    image: "/coach.jpg",
-  },
-  {
-    name: "Coach T",
-    role: "Under 13 Coach",
-    image: "/coach.jpg",
+    image: "/kim.jpg",
   },
 ];
 
-const basketballCoaches = [
-  {
-    name: "Keza Diane",
-    role: "Basketball Coach",
-    image: "/coach.jpg",
-  },
-  {
-    name: "Michael Gatera",
-    role: "Assistant Basketball Coach",
-    image: "/coach.jpg",
-  },
-];
+// const basketballCoaches = [
+//   {
+//     name: "Keza Diane",
+//     role: "Basketball Coach",
+//     image: "/coach.jpg",
+//   },
+//   {
+//     name: "Michael Gatera",
+//     role: "Assistant Basketball Coach",
+//     image: "/coach.jpg",
+//   },
+// ];
 
-const tennisCoaches = [
-  {
-    name: "Keza Diane",
-    role: "Basketball Coach",
-    image: "/coach.jpg",
-  },
-  {
-    name: "Michael Gatera",
-    role: "Assistant Basketball Coach",
-    image: "/coach.jpg",
-  },
-];
+// const tennisCoaches = [
+//   {
+//     name: "Keza Diane",
+//     role: "Basketball Coach",
+//     image: "/coach.jpg",
+//   },
+//   {
+//     name: "Michael Gatera",
+//     role: "Assistant Basketball Coach",
+//     image: "/coach.jpg",
+//   },
+// ];
 
 const Team = () => {
-  const [selectedCategory, setSelectedCategory] = useState("management");
+  const [selectedCategory, setSelectedCategory] = useState("football");
 
   const getTeam = () => {
     switch (selectedCategory) {
@@ -85,10 +90,10 @@ const Team = () => {
 
   const renderButtons = () => {
     const categories = [
-      { label: "Management", value: "management" },
+      // { label: "Management", value: "management" },
       { label: "Football", value: "football" },
-      { label: "Basketball", value: "basketball" },
-      { label: "Tennis", value: "tennis" },
+      // { label: "Basketball", value: "basketball" },
+      // { label: "Tennis", value: "tennis" },
     ];
 
     return (
@@ -127,12 +132,16 @@ const Team = () => {
         {renderButtons()}
 
         <div
-          className={`mt-10 xl:mt-16 grid gap-8 ${
+          className={`mt-10 xl:mt-16 grid gap-8 justify-items-center ${
             getTeam().length === 1
-              ? "grid-cols-1 justify-items-center"
+              ? "grid-cols-1"
               : getTeam().length === 2
-              ? "grid-cols-1 sm:grid-cols-2 justify-items-center"
-              : "grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 justify-items-center"
+              ? "grid-cols-2"
+              : getTeam().length === 3
+              ? "grid-cols-3"
+              : getTeam().length === 4
+              ? "grid-cols-1 sm:grid-cols-2 md:grid-cols-4"
+              : "grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
           }`}
         >
           {getTeam().map((member, index) => (

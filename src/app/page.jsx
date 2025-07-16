@@ -8,6 +8,7 @@ import Programs from "@/components/Programs";
 import Team from "@/components/Team";
 import CallToAction from "@/components/CallToAction";
 import Pricing from "@/components/Pricing";
+import GallerySection from "@/components/GallerySection";
 
 export const metadata = {
   title: "Shir Sports Academy",
@@ -20,6 +21,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <About />
+      <GallerySection />
       <Programs />
       <Team />
       <ValueProposition />
