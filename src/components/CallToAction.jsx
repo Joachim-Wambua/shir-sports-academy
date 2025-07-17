@@ -40,7 +40,7 @@ const CallToAction = () => {
               potential is realized and goals become wins.
             </p>
             <Link
-              href="/"
+              href="/contact"
               className="inline-block rounded-md border border-transparent bg-white px-7 py-3 text-base font-bold text-[#59098c] transition hover:bg-[#0BB489] hover:text-white"
             >
               Get Started Today

@@ -43,14 +43,14 @@ const Footer = () => {
                   About Us
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a
                   href="/coaches"
                   className="text-white transition-colors duration-300 hover:text-deep-purple-accent-400"
                 >
                   Our Coaches
                 </a>
-              </li>
+              </li> */}
               <li>
                 <a
                   href="/programs"
@@ -67,14 +67,14 @@ const Footer = () => {
               Resources
             </p>
             <ul className="mt-2 space-y-2">
-              <li>
+              {/* <li>
                 <a
                   href="/events"
                   className="text-white transition-colors duration-300 hover:text-deep-purple-accent-400"
                 >
                   Events
                 </a>
-              </li>
+              </li> */}
               <li>
                 <a
                   href="/faqs"
@@ -95,7 +95,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <p className="tracking-wide text-white font-bold font-heading">Connect</p>
+            {/* <p className="tracking-wide text-white font-bold font-heading">Connect</p>
             <ul className="mt-2 space-y-2">
               <li>
                 <a
@@ -113,7 +113,7 @@ const Footer = () => {
                   Testimonials
                 </a>
               </li>
-            </ul>
+            </ul> */}
           </div>
         </div>
       </div>

@@ -2,6 +2,7 @@
 import React from "react";
 import SectionTitle from "./SectionTitle";
 import OfferList from "./OfferList";
+import Link from "next/link";
 // import axios from "axios";
 
 const pricingData = [
@@ -61,12 +62,12 @@ const PricingBox = ({ product }) => {
           </div>
 
           <div className="w-full">
-            <button
-              // onClick={handleSubscription}
+            <Link
+              href="/contact"
               className="inline-block w-full rounded-md bg-white px-7 py-3 text-center text-base font-bold text-[#59098C] transition duration-300 hover:bg-primary/90"
             >
               Join Now
-            </button>
+            </Link>
           </div>
         </div>
 
