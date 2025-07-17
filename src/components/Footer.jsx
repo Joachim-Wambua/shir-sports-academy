@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import Image from "next/image";
 
 const Footer = () => {
@@ -33,7 +33,9 @@ const Footer = () => {
 
         <div className="grid grid-cols-2 gap-5 row-gap-8 lg:col-span-4 md:grid-cols-3">
           <div>
-            <p className="tracking-wide font-bold font-heading text-white">Academy</p>
+            <p className="tracking-wide font-bold font-heading text-white">
+              Academy
+            </p>
             <ul className="mt-2 space-y-2">
               <li>
                 <a
@@ -75,14 +77,14 @@ const Footer = () => {
                   Events
                 </a>
               </li> */}
-              <li>
+              {/* <li>
                 <a
                   href="/faqs"
                   className="text-white transition-colors duration-300 hover:text-deep-purple-accent-400"
                 >
                   FAQs
                 </a>
-              </li>
+              </li> */}
               <li>
                 <a
                   href="/contact"
