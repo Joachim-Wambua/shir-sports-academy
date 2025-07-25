@@ -9,7 +9,7 @@ const ProgramCard = ({ title, description, image, link }) => {
         />
       </div>
       <div className="p-6">
-        <h3 className="text-2xl font-semibold mb-2 text-[#n 59098c]">
+        <h3 className="text-2xl font-semibold mb-2 text-[#59098c]">
           {title}
         </h3>
         <p className="text-gray-600 mb-4">{description}</p>

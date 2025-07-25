@@ -2,29 +2,31 @@ import Link from "next/link";
 
 export default function About() {
   return (
-    <section className="w-full bg-white py-12">
+    <section className="w-full bg-white py-12" aria-labelledby="about-heading">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-8 px-6">
-        {/* Left: Video */}
-        <div className="w-full lg:w-1/2">
-          <div className="aspect-video rounded-2xl overflow-hidden shadow-lg">
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="metadata"
-              poster="/football-thumb.jpg" // Add a preview image for faster first paint
-              className="w-full h-full object-cover"
-            >
-              <source src="/football-promo.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </div>
+        {/* Video */}
+        <figure className="w-full lg:w-1/2 aspect-video rounded-2xl overflow-hidden shadow-lg">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            poster="/academy/team.jpg"
+            className="w-full h-full object-cover"
+            aria-label="Football Academy Video"
+          >
+            <source src="/football-promo.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </figure>
 
-        {/* Right: Text */}
+        {/* Text */}
         <div className="w-full lg:w-1/2 space-y-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+          <h2
+            id="about-heading"
+            className="text-3xl md:text-4xl font-bold text-gray-900"
+          >
             More Than a Game — We Train Minds and Feet
           </h2>
           <p className="text-gray-600 text-lg leading-relaxed">

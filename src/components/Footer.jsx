@@ -3,119 +3,53 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <div className="px-4 pt-16 mx-auto bg-[#59098c] w-full sm:max-w-screen md:max-w-screen lg:max-w-screen lg:px-24">
+    <footer className="px-4 pt-16 mx-auto bg-[#59098c] w-full sm:max-w-screen md:max-w-screen lg:max-w-screen lg:px-24">
       <div className="grid gap-16 row-gap-10 mb-8 lg:grid-cols-6">
-        <div className="md:max-w-md lg:col-span-2">
-          {/* Logo */}
-          <a
-            href="/"
-            className="flex items-center space-x-3 rtl:space-x-reverse"
-          >
+        <div className="lg:col-span-2">
+          <a href="/" className="flex items-center">
             <Image
               src="/shir-web-logo.png"
               width={160}
               height={160}
-              alt="Shir Web Logo"
-              className="transition-all duration-300"
+              alt="Shir Sports Academy Logo"
+              priority
             />
           </a>
-          <div className="mt-4 lg:max-w-sm">
-            <p className="text-sm text-white">
-              Building champions through discipline, skill development, and
-              teamwork.
-            </p>
-            <p className="mt-4 text-sm text-white">
-              Join us to unlock your athletic potential through elite training
-              and support.
-            </p>
-          </div>
+          <p className="mt-4 text-sm">
+            Building champions through discipline, skill development, and
+            teamwork.
+          </p>
+          <p className="mt-2 text-sm">
+            Join us to unlock your athletic potential through elite training and
+            support.
+          </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-5 row-gap-8 lg:col-span-4 md:grid-cols-3">
+        <div className="grid grid-cols-2 gap-5 lg:col-span-4 md:grid-cols-3">
           <div>
-            <p className="tracking-wide font-bold font-heading text-white">
-              Academy
-            </p>
-            <ul className="mt-2 space-y-2">
+            <h4 className="font-bold mb-2">Academy</h4>
+            <ul className="space-y-2">
               <li>
-                <a
-                  href="/about"
-                  className="text-white transition-colors duration-300 hover:text-deep-purple-accent-400"
-                >
+                <a href="/about" className="hover:underline">
                   About Us
                 </a>
               </li>
-              {/* <li>
-                <a
-                  href="/coaches"
-                  className="text-white transition-colors duration-300 hover:text-deep-purple-accent-400"
-                >
-                  Our Coaches
-                </a>
-              </li> */}
               <li>
-                <a
-                  href="/programs"
-                  className="text-white transition-colors duration-300 hover:text-deep-purple-accent-400"
-                >
+                <a href="/programs" className="hover:underline">
                   Training Programs
                 </a>
               </li>
             </ul>
           </div>
-
           <div>
-            <p className="tracking-wide font-bold font-heading text-white">
-              Resources
-            </p>
-            <ul className="mt-2 space-y-2">
-              {/* <li>
-                <a
-                  href="/events"
-                  className="text-white transition-colors duration-300 hover:text-deep-purple-accent-400"
-                >
-                  Events
-                </a>
-              </li> */}
-              {/* <li>
-                <a
-                  href="/faqs"
-                  className="text-white transition-colors duration-300 hover:text-deep-purple-accent-400"
-                >
-                  FAQs
-                </a>
-              </li> */}
+            <h4 className="font-bold mb-2">Resources</h4>
+            <ul className="space-y-2">
               <li>
-                <a
-                  href="/contact"
-                  className="text-white transition-colors duration-300 hover:text-deep-purple-accent-400"
-                >
+                <a href="/contact" className="hover:underline">
                   Contact
                 </a>
               </li>
             </ul>
-          </div>
-
-          <div>
-            {/* <p className="tracking-wide text-white font-bold font-heading">Connect</p>
-            <ul className="mt-2 space-y-2">
-              <li>
-                <a
-                  href="/join"
-                  className="text-white transition-colors duration-300 hover:text-deep-purple-accent-400"
-                >
-                  Join Now
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/testimonials"
-                  className="text-white transition-colors duration-300 hover:text-deep-purple-accent-400"
-                >
-                  Testimonials
-                </a>
-              </li>
-            </ul> */}
           </div>
         </div>
       </div>
@@ -158,7 +92,7 @@ const Footer = () => {
           </a>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 

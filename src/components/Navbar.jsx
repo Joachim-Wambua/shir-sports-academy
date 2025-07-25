@@ -10,12 +10,15 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  // Fix: Detect scroll position immediately on mount
   useEffect(() => {
-    const onScroll = () => {
+    const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+
+    handleScroll(); // Run immediately on mount
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const menuItems = [
@@ -47,10 +50,11 @@ const Navbar = () => {
               height={160}
               alt="Shir Web Logo"
               className="transition-all duration-300"
+              priority
             />
           </Link>
 
-          {/* Call Us Button */}
+          {/* Call Us Button (Desktop) */}
           <div className="hidden md:flex md:order-2 space-x-3">
             <a href="tel:+254743130391">
               <button
@@ -82,7 +86,7 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Hamburger Icon */}
+          {/* Mobile Menu Toggle */}
           <button
             className="md:hidden text-3xl text-[#8536b6] z-50"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -93,7 +97,7 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Menu Drawer */}
       <div
         className={`fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-40 transform transition-transform duration-300 ease-in-out ${
           isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
@@ -120,7 +124,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Overlay */}
+      {/* Overlay for Mobile Menu */}
       {isMobileMenuOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-40 z-30"

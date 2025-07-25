@@ -36,19 +36,22 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="relative h-[90vh] w-full overflow-hidden shadow-xl pt-20">
+    <section
+      className="relative h-[90vh] w-full overflow-hidden shadow-xl pt-20"
+      aria-label="Hero Section"
+    >
       <AnimatePresence mode="wait">
         <motion.div
           key={slides[index].id}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 1.2, ease: "easeInOut" }}
+          transition={{ duration: 1.2 }}
           className="absolute inset-0"
         >
           <Image
             src={slides[index].image}
-            alt={slides[index].title}
+            alt={`Slide: ${slides[index].title}`}
             fill
             priority={index === 0}
             className="object-cover"
@@ -56,28 +59,28 @@ const Hero = () => {
           />
           <div className="absolute inset-0 bg-black/80" />
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4">
-            <motion.h2
+            <motion.h1
               className="text-4xl md:text-6xl font-bold mb-4"
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -20, opacity: 0 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
+              transition={{ delay: 0.4 }}
             >
               {slides[index].title}
-            </motion.h2>
+            </motion.h1>
             <motion.p
               className="text-lg md:text-xl max-w-2xl"
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -20, opacity: 0 }}
-              transition={{ delay: 0.6, duration: 0.6 }}
+              transition={{ delay: 0.6 }}
             >
               {slides[index].text}
             </motion.p>
           </div>
         </motion.div>
       </AnimatePresence>
-    </div>
+    </section>
   );
 };
 
